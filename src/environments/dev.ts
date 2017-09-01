@@ -1,21 +1,16 @@
-import { ConnectionOptions } from "typeorm";
-import { Photo } from '../entities/Photo'
+import {ConnectionOptions} from "typeorm";
+import {User} from "../entities/User";
 
-export const developmentConnectionOptions: ConnectionOptions = {
-    driver: {
-        type: "mysql",
-        host: "localhost",
-        port: 3306,
-        username: "root",
-        password: "root",
-        database: "test"
-    },
-    logging: {
-        logQueries: true,
-        logFailedQueryError: true,
-    },
+export const connectionOptions: ConnectionOptions = {
+    type: "mysql",
+    host: "localhost",
+    port: 3306,
+    username: "root",
+    password: "root",
+    database: "test",
+    logging:"all",
     autoSchemaSync: true,
     //entities: [__dirname + "/modules/**/entity/{*.ts,*.js}"],
-    entities: [Photo],
+    entities: [User],
     subscribers: [__dirname + "/modules/**/subscriber/{*.ts,*.js}"]
-}
+};
